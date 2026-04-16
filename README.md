@@ -1,54 +1,52 @@
-# AI-Automated Resume Builder
+# AI Resume Architect 🚀
 
-An enterprise-grade, full-stack application designed to autonomously generate perfectly formatted, ATS-optimized LaTeX resumes. By leveraging highly capable Large Language Models alongside a scalable Fast API backend and a dynamic React frontend, the platform algorithmically aligns a candidate's GitHub portfolio with targeted job descriptions to maximize application success rates.
+**An Enterprise-Grade, AI-Powered Resume Generation & ATS Optimization Engine**
 
-## System Architecture & Workflow
+AI Resume Architect is a robust, full-stack platform designed to autonomously generate perfectly formatted, highly compressed LaTeX resumes. By intelligently parsing target job descriptions and matching them against a candidate's GitHub portfolio, it serves as a high-conversion engine for software engineers navigating automated resume screeners.
 
-The orchestration pipeline consists of several specialized AI Agents working in concert:
+By leveraging specialized AI Agents working in concert and employing algorithmic data pruning, the platform ensures that the generated document strips away noisy data and injects high-confidence keywords, maximizing Applicant Tracking System (ATS) selection rates.
 
-1. **Job Description Extraction (`JDParserAgent`)**: Consumes the raw target job description, semantically analyzing it to extract absolute prerequisite skills, core domain knowledge, and exact tooling requirements into a structured JSON payload.
-2. **Repository Aggregation (`GitHubAgent`)**: Interfaces with candidate public repositories, dynamically fetching tech stacks and project summarizations.
-3. **Data Pruning (`ProjectSelectorAgent`)**: Algorithmically selects the top 3 optimal, highly-correlated projects from the candidate's repository dataset based upon the parsed JD parameters.
-4. **ATS Pre-Calculation (`ScoreCheckerAgent`)**: Evaluates the overlap between the selected candidate data and the JD to provide a hard ATS projection score natively highlighting critical missing skills.
-5. **LaTeX Compilation (`ResumeGeneratorAgent`)**: Instantiates a precise prompting matrix to generate hyper-compressed, highly-impactful 3-point formatting utilizing injected keywords ensuring optimal space utilization and ATS parsing success natively inside `.tex` formatted templates.
+***
 
-## Tech Stack Overview
+## 🌟 Key Technical Features
 
-### Backend Framework
-- **Python / FastAPI**: Core routing and ultra-fast asynchronous data handling.
-- **Groq API**: Lightning fast inferencing using state-of-the-art LLaMa models.
-- **Pydantic**: Strict data validation and settings management.
+- **🧠 Intelligent JD Extraction Model:** Semantically parses raw Job Descriptions to extract absolute prerequisite skills, core domain knowledge, and exact tooling requirements into a structured JSON payload.
+- **🔍 Algorithmic Project Pruning:** Hooks into candidate GitHub repositories and algorithmically selects the **top 3 optimal, highly-correlated projects** based strictly upon the Parsed JD parameters.
+- **⚙️ Strict 1-Page Constraints:** Employs advanced Prompt Engineering constraints forcing the LLM to output exactly 2 ultra-concise bullet points per project (max 1-2 lines), ensuring guaranteed 1-page PDF compilation.
+- **💯 ATS Pre-Calculation Scoring:** Evaluates the overlap between the selected candidate data and the target JD to provide a hard ATS projection score, natively alerting the user of critical missing skills.
+- **🛠️ Dynamic Base Templates:** Features an interactive frontend Template Manager allowing users to securely hot-swap the underlying `.tex` LaTeX architecture via API injection.
 
-### Frontend Framework
-- **React / Vite**: Bleeding-edge local server handling and HMR.
-- **Tailwind CSS (v4)**: Modern, highly responsive atomic styling system. 
-- **Axios**: Promised-based HTTP client for API transactions.
-- **Lucide-React**: Clean, unified iconography.
+***
 
----
+## 💻 Tech Stack Overview
 
-## Getting Started: Complete Installation Guide
+- **Backend Core:** `Python`, `FastAPI`, `Pydantic` (Strict Data Validation)
+- **AI/LLM Architecture:** `Groq API` (LLaMa 3.3 70B Versatile), `Prompt Engineering`
+- **Frontend UI Engine:** `React`, `Vite`, `Tailwind CSS v4`, `Lucide Icons`
+- **Data Transport:** `Axios`, `RESTful JSON APIs`
 
-Follow these comprehensive steps to download, install dependencies, and run the project locally on your machine.
+***
 
-### Prerequisites
-Before beginning, ensure you have the following installed on your system:
-- **[Git](https://git-scm.com/downloads)**: To clone the repository.
-- **[Node.js (v18+)](https://nodejs.org/)**: To run the Vite React server.
-- **[Python (v3.9+)](https://www.python.org/downloads/)**: To run the backend logic.
+## 🚀 Getting Started: Complete Installation Guide
+
+Follow these comprehensive steps to download, install dependencies, and boot the multi-agent orchestration locally.
+
+### 📋 Prerequisites
+- **Git**: To clone the repository.
+- **Node.js (v18+)**: To run the Vite React server.
+- **Python (v3.9+)**: To isolate the backend server.
 - **Groq API Key**: Obtain a free API key from the [Groq Cloud Console](https://console.groq.com/keys).
 
-### 1. Clone the Repository
-Open your preferred terminal configuration and clone the codebase:
+### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/prakhar383/Job-Resume-assistant.git
-cd Job-Resume-assistant
+git clone https://github.com/prakhar383/AI-JD-Analyzer-and-Resume-Maker.git
+cd AI-JD-Analyzer-and-Resume-Maker
 ```
 
-### 2. Configure the Backend (FastAPI + AI Pipeline)
-Open a terminal and navigate into the `backend` directory to establish the isolated Python environment.
+### 2️⃣ Configure the AI Backend (FastAPI)
+Establish an isolated Python virtual environment inside the `backend` directory.
 
-#### For Windows:
+**For Windows:**
 ```cmd
 cd backend
 python -m venv venv
@@ -56,7 +54,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-#### For macOS / Linux:
+**For macOS / Linux:**
 ```bash
 cd backend
 python3 -m venv venv
@@ -64,14 +62,15 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-Next, create an environment variables file to safely house your API credentials.
+**Environment Setup:**
 1. Create a new file named `.env` inside the `backend` directory.
-2. Add your Groq API key to the file exactly as follows:
+2. Add your Groq API key securely:
    ```env
    GROQ_API_KEY=your_actual_groq_api_key_here
    ```
 
-Start the backend server on port 8000. *(Note for Windows cmd users: If you run into UI emoji rendering errors, prepend the startup with the appropriate UTF-8 flag as seen below)*:
+**Start the Server (Port 8000):**
+*Note for Windows users: Prepending the UTF-8 flag prevents character encoding crashes during AI generation.*
 ```cmd
 # Windows CMD
 set PYTHONIOENCODING=utf-8
@@ -85,8 +84,8 @@ python main.py
 python main.py
 ```
 
-### 3. Configure the Frontend (React + Vite)
-Leave the backend terminal running. Open a **new** terminal window and navigate into the `frontend` directory to install the UI interface.
+### 3️⃣ Configure the Frontend (React + Vite)
+Leave the backend terminal running. Open a **new** terminal window.
 
 ```bash
 cd frontend
@@ -94,13 +93,13 @@ npm install
 npm run dev
 ```
 
-### 4. Application Usage
-Once both servers are running successfully, your terminal will provide a localhost link (typically `http://localhost:5173/`).
-1. Open your web browser and navigate precisely to **[http://localhost:5173/](http://localhost:5173/)**.
-2. Input a target **GitHub Username**.
-3. Paste the complete text of your desired **Job Description** into the designated text area.
-4. *(Optional)* Use the **Template Configuration** box to paste your own custom LaTeX template. Ensuring it contains `{{DYNAMIC_OBJECTIVE_PLACEHOLDER}}` and `{{DYNAMIC_PROJECTS_PLACEHOLDER}}`, click **Update Template** to securely overwrite the backend configuration on the fly.
-5. Click **Generate LaTeX Resume** to instantly trigger the multi-agent AI pipeline. It natively enforces strict 1-page constraints (e.g., max 2 lines per bullet, zero chat text) and returns your custom-tailored ATS resume code.
+### 4️⃣ Application Usage
+
+1. 🌐 Open your web browser and navigate to **[http://localhost:5173/](http://localhost:5173/)**.
+2. 👤 Input a target **GitHub Username**.
+3. 📝 Paste the complete text of your desired **Job Description**.
+4. ⚙️ *(Optional)* Use the **Template Configuration** box to paste your own custom LaTeX template. Ensuring it contains `{{DYNAMIC_OBJECTIVE_PLACEHOLDER}}` and `{{DYNAMIC_PROJECTS_PLACEHOLDER}}`, click **Overwrite Template** to re-wire the backend on the fly.
+5. ✨ Click **Generate LaTeX Resume** to instantly trigger the multi-agent AI pipeline and receive your custom-tailored ATS resume code.
 
 ---
 *Created dynamically to streamline rigorous technical job application workflows.*
